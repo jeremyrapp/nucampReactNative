@@ -79,12 +79,12 @@ class Home extends Component {
                 <RenderItem
                     item={this.props.promotions.promotions.filter(promotion => promotion.featured)[0]}
                     isLoading={this.props.promotions.isLoading}
-                    errMess={this.props.promotions.errMess} 
+                    errMess={this.props.promotions.errMess}
                 />
                 <RenderItem
                     item={this.props.partners.partners.filter(partner => partner.featured)[0]}
                     isLoading={this.props.partners.isLoading}
-                    errMess={this.props.partners.errMess} 
+                    errMess={this.props.partners.errMess}
                 />
             </Animated.ScrollView>
         );

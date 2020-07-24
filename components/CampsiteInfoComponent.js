@@ -22,13 +22,13 @@ const mapDispatchToProps = {
 };
 
 function RenderCampsite(props) {
-
     const {campsite} = props;
 
     const view = React.createRef();
 
     const recognizeDrag = ({dx}) => (dx < -200) ? true : false;
-
+    const recognizeComment = ({dx}) => (dx > 200) ? true : false;
+    
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderGrant: () => {
@@ -55,6 +55,8 @@ function RenderCampsite(props) {
                     ],
                     { cancelable: false }
                 );
+            } else if (recognizeComment(gestureState)) {
+                props.onShowModal();
             }
             return true;
         }
@@ -84,7 +86,7 @@ function RenderCampsite(props) {
                             onPress={() => props.favorite ?
                                 console.log('Already set as a favorite') : props.markFavorite()}
                         />
-                    <Icon
+                        <Icon
                             name={'pencil'}
                             type='font-awesome'
                             color='#5637DD'

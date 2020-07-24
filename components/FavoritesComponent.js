@@ -15,7 +15,9 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = {    deleteFavorite: campsiteId => (deleteFavorite(campsiteId))};
+const mapDispatchToProps = {
+    deleteFavorite: campsiteId => (deleteFavorite(campsiteId))
+};
 
 class Favorites extends Component {
 
@@ -28,17 +30,17 @@ class Favorites extends Component {
         const renderFavoriteItem = ({item}) => {
             const rightButton = [
                 {
-                    text: 'Delete', 
+                    text: 'Delete',
                     type: 'delete',
                     onPress: () => {
                         Alert.alert(
                             'Delete Favorite?',
                             'Are you sure you wish to delete the favorite campsite ' + item.name + '?',
                             [
-                                { 
-                                    text: 'Cancel', 
-                                    onPress: () => console.log(item.name + 'Not Deleted'),
-                                    style: ' cancel'
+                                {
+                                    text: 'Cancel',
+                                    onPress: () => console.log(item.name + ' Not Deleted'),
+                                    style: 'cancel'
                                 },
                                 {
                                     text: 'OK',
@@ -46,7 +48,7 @@ class Favorites extends Component {
                                 }
                             ],
                             { cancelable: false }
-                        );
+                        )
                     }
                 }
             ];
